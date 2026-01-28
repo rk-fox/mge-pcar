@@ -137,7 +137,7 @@ const Layout: React.FC<LayoutProps> = ({ children, currentView, onChangeView }) 
               <img
                 alt="MGE Personal Car Logo"
                 className="h-10 w-auto object-contain"
-                src="https://raw.githubusercontent.com/rk-fox/mge-pcar/refs/heads/main/logo-MGE.png"
+                src="https://raw.githubusercontent.com/rk-fox/mge-pcar/refs/heads/main/public/logo-MGE.png"
               />
             </div>
 

@@ -19,7 +19,7 @@ const Home: React.FC<HomeProps> = ({ onChangeView, onSelectCar, cars, loading })
           <img
             alt="Entrega de chaves"
             className="w-full h-full object-cover scale-105"
-            src="https://raw.githubusercontent.com/rk-fox/mge-pcar/refs/heads/main/capa-youtube.png"
+            src="https://raw.githubusercontent.com/rk-fox/mge-pcar/refs/heads/main/public/capa-youtube.png"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-slate-900 via-slate-900/90 to-transparent dark:from-black dark:via-black/90"></div>
         </div>
@@ -166,7 +166,7 @@ const Home: React.FC<HomeProps> = ({ onChangeView, onSelectCar, cars, loading })
       {/* CTA Sell Car */}
       <section className="py-24 bg-primary relative overflow-hidden">
         <div className="absolute inset-0 opacity-20">
-          <img alt="Abstract car details" className="w-full h-full object-cover grayscale" src="/capa-youtube.png" />
+          <img alt="Abstract car details" className="w-full h-full object-cover grayscale" src="https://raw.githubusercontent.com/rk-fox/mge-pcar/refs/heads/main/public/capa-youtube.png" />
         </div>
         <div className="absolute inset-0 bg-primary/80"></div>
         <div className="container mx-auto px-4 relative z-10">
