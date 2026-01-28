@@ -1,0 +1,5 @@
+{
+  "name": "MGE Personal Car",
+  "description": "A premium car dealership application featuring a public storefront for browsing and buying luxury vehicles, and an admin dashboard for vehicle management.",
+  "requestFramePermissions": []
+}
