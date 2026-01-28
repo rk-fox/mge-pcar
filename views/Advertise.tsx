@@ -50,7 +50,7 @@ const Advertise: React.FC = () => {
                     <img
                         alt="Carros de luxo"
                         className="w-full h-full object-cover scale-105"
-                        src="./capa-youtube.png"
+                        src="https://raw.githubusercontent.com/rk-fox/mge-pcar/refs/heads/main/capa-youtube.png"
                     />
                     <div className="absolute inset-0 bg-gradient-to-r from-slate-900 via-slate-900/80 to-transparent dark:from-black dark:via-black/80"></div>
                 </div>

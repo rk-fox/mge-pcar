@@ -41,7 +41,7 @@ const LoginModal: React.FC<LoginModalProps> = ({ isOpen, onClose, onLoginSuccess
 
                 <div className="p-8 md:p-12 relative z-10">
                     <div className="flex justify-between items-center mb-10">
-                        <img src="./logo-MGE.png" alt="MGE Logo" className="h-8 w-auto" />
+                        <img src="/logo-MGE.png" alt="MGE Logo" className="h-8 w-auto" />
                         <button
                             onClick={onClose}
                             className="text-slate-400 hover:text-slate-600 dark:hover:text-white transition-colors"

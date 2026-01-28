@@ -137,7 +137,7 @@ const Layout: React.FC<LayoutProps> = ({ children, currentView, onChangeView }) 
               <img
                 alt="MGE Personal Car Logo"
                 className="h-10 w-auto object-contain"
-                src="./logo-MGE.png"
+                src="https://raw.githubusercontent.com/rk-fox/mge-pcar/refs/heads/main/logo-MGE.png"
               />
             </div>
 
@@ -191,7 +191,7 @@ const Layout: React.FC<LayoutProps> = ({ children, currentView, onChangeView }) 
               <img
                 alt="MGE White Logo"
                 className="h-10 w-auto brightness-0 invert mb-6 mx-auto md:mx-0"
-                src="./logo-MGE.png"
+                src="/logo-MGE.png"
               />
               <p className="text-slate-400 text-sm leading-relaxed max-w-sm mx-auto md:mx-0">
                 A MGE Personal Car é referência em consultoria automotiva e venda de veículos selecionados, oferecendo exclusividade, procedência e segurança em cada negociação.

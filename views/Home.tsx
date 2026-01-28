@@ -19,7 +19,7 @@ const Home: React.FC<HomeProps> = ({ onChangeView, onSelectCar, cars, loading })
           <img
             alt="Entrega de chaves"
             className="w-full h-full object-cover scale-105"
-            src="./capa-youtube.png"
+            src="https://raw.githubusercontent.com/rk-fox/mge-pcar/refs/heads/main/capa-youtube.png"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-slate-900 via-slate-900/90 to-transparent dark:from-black dark:via-black/90"></div>
         </div>
@@ -116,7 +116,7 @@ const Home: React.FC<HomeProps> = ({ onChangeView, onSelectCar, cars, loading })
                   className="bg-white dark:bg-card-dark rounded-2xl overflow-hidden shadow-2xl hover:shadow-[0_20px_50px_rgba(0,0,0,0.1)] transition-all duration-500 group border border-slate-100 dark:border-white/5 cursor-pointer"
                 >
                   <div className="relative overflow-hidden h-72">
-                    <img alt={`${car.brand} ${car.model}`} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src={car.image || (car.images && car.images.length > 0 ? car.images[0] : './logo-MGE.png')} />
+                    <img alt={`${car.brand} ${car.model}`} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src={car.image || (car.images && car.images.length > 0 ? car.images[0] : '/logo-MGE.png')} />
                     <div className="absolute top-4 left-4 bg-primary text-white px-3 py-1 rounded-lg text-xs font-black uppercase tracking-widest shadow-lg">Destaque</div>
                     <div className="absolute bottom-0 right-0 bg-accent text-slate-900 px-6 py-3 font-black text-2xl rounded-tl-2xl shadow-2xl">
                       R$ {car.price.toLocaleString('pt-BR')}
@@ -166,7 +166,7 @@ const Home: React.FC<HomeProps> = ({ onChangeView, onSelectCar, cars, loading })
       {/* CTA Sell Car */}
       <section className="py-24 bg-primary relative overflow-hidden">
         <div className="absolute inset-0 opacity-20">
-          <img alt="Abstract car details" className="w-full h-full object-cover grayscale" src="./capa-youtube.png" />
+          <img alt="Abstract car details" className="w-full h-full object-cover grayscale" src="/capa-youtube.png" />
         </div>
         <div className="absolute inset-0 bg-primary/80"></div>
         <div className="container mx-auto px-4 relative z-10">
@@ -196,7 +196,7 @@ const Home: React.FC<HomeProps> = ({ onChangeView, onSelectCar, cars, loading })
             </div>
             <div className="lg:w-1/3 hidden lg:block relative group">
               <div className="absolute inset-0 bg-accent rounded-[2rem] blur-3xl opacity-20 group-hover:opacity-40 transition-opacity"></div>
-              <img alt="Negociação MGE" className="rounded-[2rem] shadow-2xl border-8 border-white/20 transform rotate-3 relative z-10 group-hover:rotate-0 transition-transform duration-500" src="./logo-MGE.png" />
+              <img alt="Negociação MGE" className="rounded-[2rem] shadow-2xl border-8 border-white/20 transform rotate-3 relative z-10 group-hover:rotate-0 transition-transform duration-500" src="/logo-MGE.png" />
             </div>
           </div>
         </div>

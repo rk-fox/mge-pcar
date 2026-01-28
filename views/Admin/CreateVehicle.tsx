@@ -652,7 +652,7 @@ const CreateVehicle: React.FC<AdminProps> = ({ onBack, onCarUpdate }) => {
                                             <div key={car.id} className="bg-white dark:bg-slate-900 rounded-[2rem] p-6 flex flex-col md:flex-row items-center gap-8 border border-slate-100 dark:border-white/5 hover:shadow-2xl transition-all group relative overflow-hidden">
                                                 {car.isFeatured && <div className="absolute top-0 right-0 w-24 h-24 bg-primary opacity-5 rounded-full -mr-12 -mt-12 blur-2xl"></div>}
                                                 <div className="w-full md:w-48 h-36 rounded-2xl overflow-hidden bg-slate-100 dark:bg-slate-800 flex-shrink-0 shadow-lg group-hover:shadow-primary/10 transition-shadow">
-                                                    <img src={car.image || (car.images && car.images.length > 0 ? car.images[0] : './logo-MGE.png')} alt={car.model} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+                                                    <img src={car.image || (car.images && car.images.length > 0 ? car.images[0] : '/logo-MGE.png')} alt={car.model} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
                                                 </div>
                                                 <div className="flex-1 min-w-0 text-center md:text-left">
                                                     <div className="flex flex-wrap items-center justify-center md:justify-start gap-3 mb-2">

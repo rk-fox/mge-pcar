@@ -92,7 +92,7 @@ const Stock: React.FC<StockProps> = ({ onSelectCar, cars, loading }) => {
           <img
             alt="Background Luxury Car"
             className="w-full h-full object-cover scale-105"
-            src="./capa-youtube.png"
+            src="https://raw.githubusercontent.com/rk-fox/mge-pcar/refs/heads/main/capa-youtube.png"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-slate-900 via-slate-900/80 to-transparent dark:from-black dark:via-black/80"></div>
         </div>
@@ -260,7 +260,7 @@ const Stock: React.FC<StockProps> = ({ onSelectCar, cars, loading }) => {
                     <img
                       alt={car.model}
                       className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                      src={car.image || (car.images && car.images.length > 0 ? car.images[0] : './logo-MGE.png')}
+                      src={car.image || (car.images && car.images.length > 0 ? car.images[0] : '/logo-MGE.png')}
                     />
                     <div className="absolute top-4 left-4 bg-accent text-slate-900 px-4 py-2 font-black text-lg rounded-xl shadow-2xl">
                       R$ {car.price.toLocaleString('pt-BR')}
