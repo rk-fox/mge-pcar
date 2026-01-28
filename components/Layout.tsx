@@ -203,7 +203,7 @@ const Layout: React.FC<LayoutProps> = ({ children, currentView, onChangeView }) 
                 LINKS ÚTEIS
                 <span className="absolute -bottom-2 left-0 w-8 h-1 bg-accent rounded-full"></span>
               </h4>
-              <ul class="space-y-4 text-sm font-medium">
+              <ul className="space-y-4 text-sm font-medium">
                 <li><button onClick={() => onChangeView('HOME')} className="text-slate-400 hover:text-accent transition-colors">Início</button></li>
                 <li><button onClick={() => onChangeView('STOCK')} className="text-slate-400 hover:text-accent transition-colors">Estoque Completo</button></li>
                 <li><button onClick={() => onChangeView('ADVERTISE')} className="text-slate-400 hover:text-accent transition-colors">Venda seu Carro</button></li>
@@ -217,7 +217,7 @@ const Layout: React.FC<LayoutProps> = ({ children, currentView, onChangeView }) 
                 INFORMAÇÕES
                 <span className="absolute -bottom-2 left-0 w-8 h-1 bg-accent rounded-full"></span>
               </h4>
-              <ul class="space-y-6 text-sm font-medium">
+              <ul className="space-y-6 text-sm font-medium">
                 <li className="flex items-center md:items-start gap-4 justify-center md:justify-start group">
                   <span className="material-symbols-outlined text-accent bg-white/5 p-2 rounded-lg group-hover:bg-accent group-hover:text-primary transition-colors">phone</span>
                   <div>

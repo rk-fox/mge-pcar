@@ -171,14 +171,14 @@ const Advertise: React.FC = () => {
                                                 <input name="quilometragem" className="w-full bg-slate-50 dark:bg-background-dark border-slate-200 dark:border-white/10 rounded-lg px-4 py-3 focus:ring-2 focus:ring-primary dark:text-white" placeholder="Ex: 12000" type="text" />
                                             </div>
 
-                                            <div className="space-y-4 col-span-2 mt-4 pt-4 border-t border-slate-100 dark:border-white/10">
+                                            <div className="space-y-4 col-span-1 md:col-span-2 mt-4 pt-4 border-t border-slate-100 dark:border-white/10">
                                                 <label className="text-sm font-bold text-primary dark:text-accent uppercase tracking-widest">
                                                     Alguma pendência documental ou financeira?
                                                 </label>
 
-                                                <div className="flex flex-wrap gap-8 p-4 bg-slate-50 dark:bg-background-dark rounded-xl border border-slate-100 dark:border-white/5">
+                                                <div className="flex flex-col md:flex-row flex-wrap gap-4 md:gap-8 p-4 bg-slate-50 dark:bg-background-dark rounded-xl border border-slate-100 dark:border-white/5">
                                                     {/* OPÇÕES DE RÁDIO */}
-                                                    <div className="flex gap-6 border-r border-slate-200 dark:border-white/10 pr-6">
+                                                    <div className="flex gap-4 md:gap-6 md:border-r border-slate-200 dark:border-white/10 md:pr-6 pb-3 md:pb-0 border-b md:border-b-0">
                                                         <label className="flex items-center gap-2 text-sm font-bold text-slate-700 dark:text-slate-200 cursor-pointer group">
                                                             <input
                                                                 type="radio"
@@ -206,7 +206,7 @@ const Advertise: React.FC = () => {
                                                     </div>
 
                                                     {/* CHECKBOXES (Habilitados apenas se semPendencia for falso) */}
-                                                    <div className={`flex flex-wrap gap-6 transition-opacity duration-300 ${semPendencia ? 'opacity-30 pointer-events-none' : 'opacity-100'}`}>
+                                                    <div className={`flex flex-col md:flex-row flex-wrap gap-3 md:gap-6 transition-opacity duration-300 ${semPendencia ? 'opacity-30 pointer-events-none' : 'opacity-100'}`}>
                                                         <label className="flex items-center gap-2 text-sm font-semibold text-slate-600 dark:text-slate-300 cursor-pointer">
                                                             <input
                                                                 type="checkbox"

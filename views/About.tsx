@@ -269,7 +269,7 @@ const About: React.FC<AboutProps> = ({ reviewToken }) => {
                                                 )}
                                             </div>
                                             <div className="text-[10px] text-accent font-black uppercase tracking-[0.2em] mt-2">
-                                                {review.carro} • {review.ano_compra}
+                                                {review.carro} comprado em {review.ano_compra}
                                             </div>
                                         </div>
                                     </div>
@@ -311,7 +311,7 @@ const About: React.FC<AboutProps> = ({ reviewToken }) => {
                                     </div>
 
                                     <form onSubmit={handleReviewSubmit} className="space-y-4">
-                                        <div className="grid grid-cols-2 gap-4">
+                                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                             <div className="space-y-1">
                                                 <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1">Nome Completo</label>
                                                 <input required name="nome" value={reviewForm.nome} onChange={handleReviewChange} className="w-full bg-slate-50 dark:bg-white/5 border border-transparent dark:border-white/5 rounded-2xl p-4 text-sm font-bold focus:ring-2 focus:ring-primary outline-none" placeholder="João Silva" />
@@ -322,7 +322,7 @@ const About: React.FC<AboutProps> = ({ reviewToken }) => {
                                             </div>
                                         </div>
 
-                                        <div className="grid grid-cols-2 gap-4">
+                                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                             <div className="space-y-1">
                                                 <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1">Ano da Compra</label>
                                                 <input type="number" name="ano_compra" value={reviewForm.ano_compra} onChange={handleReviewChange} className="w-full bg-slate-50 dark:bg-white/5 border border-transparent dark:border-white/5 rounded-2xl p-4 text-sm font-bold focus:ring-2 focus:ring-primary outline-none" />

@@ -146,7 +146,7 @@ const CarDetails: React.FC<CarDetailsProps> = ({ car }) => {
 
                             {/* Thumbnails */}
                             {gallery.length > 1 && (
-                                <div className="grid grid-cols-4 md:grid-cols-6 gap-4 px-2">
+                                <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-3 md:gap-4 px-2">
                                     {gallery.map((img, idx) => (
                                         <button
                                             key={idx}

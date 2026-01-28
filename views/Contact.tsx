@@ -54,7 +54,7 @@ const Contact: React.FC = () => {
                 <div className="container mx-auto px-4 md:px-8">
                     <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
                         <div className="lg:col-span-7">
-                            <div className="bg-white dark:bg-card-dark p-8 md:p-12 rounded-[2.5rem] shadow-2xl border border-slate-100 dark:border-white/5 relative overflow-hidden group">
+                            <div className="bg-white dark:bg-card-dark p-6 md:p-8 lg:p-12 rounded-[2rem] md:rounded-[2.5rem] shadow-2xl border border-slate-100 dark:border-white/5 relative overflow-hidden group">
                                 <div className="absolute top-0 right-0 w-32 h-32 bg-primary opacity-5 rounded-full -mr-10 -mt-10 blur-3xl group-hover:opacity-10 transition-opacity"></div>
                                 <div className="relative z-10">
                                     <h2 className="font-display text-4xl font-black mb-10 text-slate-900 dark:text-white uppercase tracking-tighter leading-none">Envie uma <br /><span className="text-primary dark:text-accent">Mensagem</span></h2>
@@ -106,7 +106,7 @@ const Contact: React.FC = () => {
                         </div>
 
                         <div className="lg:col-span-5 flex flex-col gap-8">
-                            <div className="bg-slate-900 text-white p-10 rounded-[2.5rem] shadow-2xl relative overflow-hidden group">
+                            <div className="bg-slate-900 text-white p-6 md:p-10 rounded-[2rem] md:rounded-[2.5rem] shadow-2xl relative overflow-hidden group">
                                 <div className="absolute bottom-0 right-0 w-40 h-40 bg-accent opacity-10 rounded-full -mb-10 -mr-10 blur-3xl"></div>
                                 <h3 className="font-display text-2xl font-black mb-8 uppercase tracking-tighter">Fale Diretamente</h3>
                                 <div className="space-y-8">

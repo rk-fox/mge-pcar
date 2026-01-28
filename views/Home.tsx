@@ -60,7 +60,7 @@ const Home: React.FC<HomeProps> = ({ onChangeView, onSelectCar, cars, loading })
 
       {/* Features Bar */}
       <section className="bg-slate-900 dark:bg-black border-y border-white/5 py-12">
-        <div className="container mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="container mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8">
           <div className="flex items-center gap-6 text-white justify-center md:justify-start group">
             <div className="bg-primary/20 p-4 rounded-2xl flex items-center justify-center group-hover:bg-primary transition-colors duration-300">
               <span className="material-symbols-outlined text-primary group-hover:text-white text-3xl">credit_card</span>
@@ -170,7 +170,7 @@ const Home: React.FC<HomeProps> = ({ onChangeView, onSelectCar, cars, loading })
         </div>
         <div className="absolute inset-0 bg-primary/80"></div>
         <div className="container mx-auto px-4 relative z-10">
-          <div className="bg-white/10 backdrop-blur-2xl rounded-[2.5rem] p-10 md:p-20 border border-white/20 flex flex-col lg:flex-row items-center gap-16 shadow-2xl">
+          <div className="bg-white/10 backdrop-blur-2xl rounded-[2rem] md:rounded-[2.5rem] p-6 md:p-10 lg:p-20 border border-white/20 flex flex-col lg:flex-row items-center gap-8 md:gap-16 shadow-2xl">
             <div className="lg:w-2/3 text-white">
               <div className="text-accent font-black text-sm tracking-[0.3em] uppercase mb-6">Venda Facilitada</div>
               <h2 className="font-display text-4xl md:text-6xl font-black mb-8 uppercase leading-[0.9] tracking-tighter">Venda seu veículo com <br /><span className="text-accent">valorização real.</span></h2>
