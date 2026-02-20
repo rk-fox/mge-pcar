@@ -18,6 +18,40 @@ const CarDetails: React.FC<CarDetailsProps> = ({ car }) => {
         email: '',
         whatsapp: ''
     });
+    const [shareCopied, setShareCopied] = useState(false);
+
+    const handleShare = async () => {
+        const shareUrl = `${window.location.origin}${window.location.pathname}?car=${car.id}`;
+        const shareData = {
+            title: `${car.brand} ${car.model} ${car.year_fab}/${car.year_mod}`,
+            text: `Confira este ${car.brand} ${car.model} ${car.year_fab}/${car.year_mod} por R$ ${car.price.toLocaleString('pt-BR')}!`,
+            url: shareUrl
+        };
+
+        if (navigator.share) {
+            try {
+                await navigator.share(shareData);
+            } catch (err) {
+                // User cancelled or share failed silently
+            }
+        } else {
+            try {
+                await navigator.clipboard.writeText(shareUrl);
+                setShareCopied(true);
+                setTimeout(() => setShareCopied(false), 2500);
+            } catch {
+                // Fallback for older browsers
+                const textarea = document.createElement('textarea');
+                textarea.value = shareUrl;
+                document.body.appendChild(textarea);
+                textarea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textarea);
+                setShareCopied(true);
+                setTimeout(() => setShareCopied(false), 2500);
+            }
+        }
+    };
 
     const handleFormChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setInterestForm(prev => ({ ...prev, [e.target.name]: e.target.value }));
@@ -309,6 +343,18 @@ const CarDetails: React.FC<CarDetailsProps> = ({ car }) => {
                                         >
                                             <span className="material-symbols-outlined text-lg font-black">chat</span> Chamar no WhatsApp
                                         </a>
+                                        <button
+                                            onClick={handleShare}
+                                            className={`w-full font-black py-4 rounded-xl text-xs uppercase tracking-widest transition-all flex items-center justify-center gap-3 border ${shareCopied
+                                                    ? 'bg-green-500/10 text-green-400 border-green-500/20'
+                                                    : 'bg-white/5 hover:bg-primary/20 text-slate-300 hover:text-primary border-white/10 hover:border-primary/30'
+                                                }`}
+                                        >
+                                            <span className="material-symbols-outlined text-lg font-black">
+                                                {shareCopied ? 'check_circle' : 'share'}
+                                            </span>
+                                            {shareCopied ? 'Link Copiado!' : 'Compartilhar Anúncio'}
+                                        </button>
                                     </div>
                                 </div>
                             </div>

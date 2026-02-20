@@ -37,20 +37,29 @@ const App: React.FC = () => {
       .select('*')
       .order('created_at', { ascending: false });
 
+    let loadedCars: Car[];
     if (error) {
       console.error('Error fetching cars:', error);
-      setCars(CARS);
+      loadedCars = CARS;
     } else if (data && data.length > 0) {
-      const camelCaseCars = data.map((item: any) => ({
+      loadedCars = data.map((item: any) => ({
         ...item,
         isFeatured: item.is_featured,
         isSold: item.is_sold
       }));
-      setCars(camelCaseCars);
     } else {
-      setCars(CARS);
+      loadedCars = CARS;
     }
+    setCars(loadedCars);
     setLoading(false);
+
+    // Check for ?car=ID param after data is loaded
+    const params = new URLSearchParams(window.location.search);
+    const carParam = params.get('car');
+    if (carParam && loadedCars.some(c => String(c.id) === carParam)) {
+      setSelectedCarId(carParam);
+      setCurrentView('DETAILS');
+    }
   };
 
   const handleSelectCar = (carId: string) => {
