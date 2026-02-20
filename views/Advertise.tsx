@@ -68,8 +68,8 @@ const Advertise: React.FC = () => {
                             Anuncie <br />
                             <span className="text-accent drop-shadow-[0_2px_10px_rgba(250,204,21,0.3)]">Seu Veículo</span>
                         </h1>
-                        <p className="text-slate-300 text-lg md:text-xl max-w-xl leading-relaxed font-medium">
-                            A MGE Personal Car oferece a melhor consultoria para você vender seu carro com rapidez, segurança e valorização de mercado.
+                        <p className="text-justify text-slate-300 text-lg md:text-xl max-w-xl leading-relaxed font-medium">
+                            A <span className="text-slate-300 dark:text-white border-b-4 border-accent/30">MGE Personal Car</span> é especializada na venda de veículos através de estratégias de mercado que unem máxima valorização e agilidade. Com uma carteira de clientes qualificada, garantimos uma transação segura, transparente e profissional em todas as etapas.
                         </p>
                     </div>
                 </div>

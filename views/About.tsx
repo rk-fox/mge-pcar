@@ -176,7 +176,7 @@ const About: React.FC<AboutProps> = ({ reviewToken }) => {
                                     src="/logo-MGE.png"
                                 />
                                 <div className="absolute -bottom-8 -right-8 bg-primary text-white p-10 rounded-[2rem] shadow-2xl z-20 hidden md:block transform hover:scale-110 transition-transform">
-                                    <p className="text-6xl font-black mb-1 tracking-tighter">10+</p>
+                                    <p className="text-6xl font-black mb-1 tracking-tighter">08+</p>
                                     <p className="text-xs font-black uppercase tracking-[0.2em]">Anos de <br /> Mercado</p>
                                 </div>
                             </div>
@@ -184,9 +184,33 @@ const About: React.FC<AboutProps> = ({ reviewToken }) => {
                         <div className="lg:w-1/2">
                             <div className="text-primary font-black text-sm tracking-[0.3em] uppercase mb-6">MGE Personal Car</div>
                             <h2 className="font-display text-4xl md:text-5xl font-black text-slate-900 dark:text-white mb-8 tracking-tighter leading-tight uppercase">Confiança esculpida em <br /><span className="text-primary dark:text-accent">cada negociação.</span></h2>
-                            <div className="space-y-8 text-slate-500 dark:text-slate-400 text-lg leading-relaxed font-medium">
-                                <p>A <span className="font-black text-slate-900 dark:text-white border-b-4 border-accent/30">MGE Personal Car</span> nasceu com o propósito de transformar a experiência de compra e venda de veículos em algo prazeroso, transparente e totalmente seguro.</p>
-                                <p>Não somos apenas uma revenda; somos consultores automotivos dedicados a encontrar o veículo ideal para o seu perfil e necessidade, oferecendo uma curadoria rigorosa em cada item do nosso estoque.</p>
+                            <div className="text-slate-500 dark:text-slate-400 text-lg leading-relaxed font-medium">
+                                {/* Bloco 1 */}
+                                <p className="text-justify">
+                                    A <span className="font-black text-slate-900 dark:text-white border-b-4 border-accent/30">MGE Personal Car</span> nasceu com o propósito de transformar a compra e venda de veículos em uma jornada pautada pela segurança e pela total transparência. Em um mercado onde a informalidade muitas vezes gera insegurança, nossa missão é atuar como um escudo para nossos clientes, combatendo práticas fraudulentas por meio de critérios rigorosos de verificação e conformidade documental.
+                                </p>
+
+                                {/* Bloco 2 */}
+                                <div className="mt-6">
+                                    <h3 className="font-black text-slate-900 dark:text-white border-b-4 border-accent/30 inline-block">
+                                        Consultoria além da revenda
+                                    </h3>
+                                    <p className="mt-2 text-justify">
+                                        Diferente do modelo tradicional de comércio automotivo, nos posicionamos como consultores especializados. Entendemos que um carro não é apenas um bem, mas uma escolha que deve se alinhar perfeitamente ao perfil e às necessidades de quem o conduz.
+                                    </p>
+                                </div>
+
+                                {/* Bloco 3 */}
+                                <div className="mt-6">
+                                    <h3 className="font-black text-slate-900 dark:text-white border-b-4 border-accent/30 inline-block">
+                                        Compromisso com a Excelência
+                                    </h3>
+                                    <p className="mt-2 text-justify">
+                                        Nossa curadoria é minuciosa: cada veículo em nosso estoque passa por um processo seletivo de procedência e qualidade técnica. O resultado é a entrega de um patrimônio revisado e uma experiência de compra baseada na confiança mútua, garantindo que a satisfação do cliente se estenda muito além do momento da entrega das chaves.
+                                    </p>
+                                </div>
+
+                                {/* Grid de Ícones */}
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-12">
                                     <div className="flex items-center gap-4 bg-slate-50 dark:bg-white/5 p-4 rounded-2xl border border-slate-100 dark:border-white/5">
                                         <span className="material-symbols-outlined text-accent text-3xl font-black">verified</span>

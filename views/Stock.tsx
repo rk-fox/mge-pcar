@@ -290,7 +290,7 @@ const Stock: React.FC<StockProps> = ({ onSelectCar, cars, loading }) => {
                         <span className="text-[10px] text-slate-400 font-bold uppercase tracking-widest">Ano</span>
                       </div>
                       <div className="bg-slate-50/50 dark:bg-background-dark/50 py-3 rounded-xl border border-slate-100 dark:border-white/5">
-                        <span className="block text-slate-900 dark:text-white text-base font-black mb-0.5 leading-none">{car.transmission === 'Automático' ? 'Auto' : 'Man'}</span>
+                        <span className="block text-slate-900 dark:text-white text-base font-black mb-0.5 leading-none">{car.transmission === 'Automático' ? 'Automático' : 'Manual'}</span>
                         <span className="text-[10px] text-slate-400 font-bold uppercase tracking-widest">Câmbio</span>
                       </div>
                       <div className="bg-slate-50/50 dark:bg-background-dark/50 py-3 rounded-xl border border-slate-100 dark:border-white/5">

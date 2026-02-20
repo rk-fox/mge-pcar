@@ -37,7 +37,7 @@ const Home: React.FC<HomeProps> = ({ onChangeView, onSelectCar, cars, loading })
               NEGÓCIO <br />
               <span className="text-accent drop-shadow-[0_2px_10px_rgba(250,204,21,0.3)]">FÁCIL E SEGURO.</span>
             </h1>
-            <p className="text-xl md:text-2xl mb-10 text-slate-200 max-w-xl font-medium leading-relaxed">
+            <p className="text-justify text-xl md:text-2xl mb-10 text-slate-200 max-w-xl font-medium leading-relaxed">
               Encontre o veículo dos seus sonhos com a consultoria personalizada e a garantia que só a MGE oferece.
             </p>
             <div className="flex flex-wrap gap-4">

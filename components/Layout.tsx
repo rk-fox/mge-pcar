@@ -136,7 +136,7 @@ const Layout: React.FC<LayoutProps> = ({ children, currentView, onChangeView }) 
             <div className="flex items-center gap-4 cursor-pointer" onClick={() => onChangeView('HOME')}>
               <img
                 alt="MGE Personal Car Logo"
-                className="h-10 w-auto object-contain"
+                className="h-14 w-auto object-contain"
                 src="https://raw.githubusercontent.com/rk-fox/mge-pcar/refs/heads/main/public/logo-MGE.png"
               />
             </div>
@@ -190,10 +190,10 @@ const Layout: React.FC<LayoutProps> = ({ children, currentView, onChangeView }) 
             <div className="col-span-1 text-center md:text-left">
               <img
                 alt="MGE White Logo"
-                className="h-10 w-auto brightness-0 invert mb-6 mx-auto md:mx-0"
+                className="h-16 w-auto brightness-0 invert mb-6 mx-auto md:mx-0"
                 src="/logo-MGE.png"
               />
-              <p className="text-slate-400 text-sm leading-relaxed max-w-sm mx-auto md:mx-0">
+              <p className="text-justify text-slate-400 text-sm leading-relaxed max-w-sm mx-auto md:mx-0">
                 A MGE Personal Car é referência em consultoria automotiva e venda de veículos selecionados, oferecendo exclusividade, procedência e segurança em cada negociação.
               </p>
             </div>
@@ -217,26 +217,56 @@ const Layout: React.FC<LayoutProps> = ({ children, currentView, onChangeView }) 
                 INFORMAÇÕES
                 <span className="absolute -bottom-2 left-0 w-8 h-1 bg-accent rounded-full"></span>
               </h4>
-              <ul className="space-y-6 text-sm font-medium">
-                <li className="flex items-center md:items-start gap-4 justify-center md:justify-start group">
-                  <span className="material-symbols-outlined text-accent bg-white/5 p-2 rounded-lg group-hover:bg-accent group-hover:text-primary transition-colors">phone</span>
-                  <div>
-                    <span className="block text-slate-500 text-[10px] uppercase font-bold tracking-wider mb-1">Telefone / WhatsApp</span>
-                    (21) 97922-5038
+              <ul className="space-y-6">
+                {/* Item: Telefone */}
+                <li className="flex items-center gap-4 group">
+                  <div className="flex-shrink-0 w-12 h-12 flex items-center justify-center bg-slate-800 dark:bg-white/5 rounded-xl group-hover:bg-accent transition-all duration-300">
+                    <span className="material-symbols-outlined text-accent group-hover:text-primary !text-[24px]">
+                      phone
+                    </span>
+                  </div>
+                  <div className="flex flex-col">
+                    <span className="block text-slate-500 text-[10px] uppercase font-bold tracking-wider mb-0.5">
+                      Telefone / WhatsApp
+                    </span>
+                    <div className="text-slate-200 text-sm md:text-base font-medium leading-tight">
+                      (21) 97922-5038 - Ferraz <br />
+                      (21) 99465-2798 - Erick
+                    </div>
                   </div>
                 </li>
-                <li className="flex items-center md:items-start gap-4 justify-center md:justify-start group">
-                  <span className="material-symbols-outlined text-accent bg-white/5 p-2 rounded-lg group-hover:bg-accent group-hover:text-primary transition-colors">email</span>
-                  <div>
-                    <span className="block text-slate-500 text-[10px] uppercase font-bold tracking-wider mb-1">E-mail</span>
-                    mgepersonalcar@gmail.com
+
+                {/* Item: E-mail */}
+                <li className="flex items-center gap-4 group">
+                  <div className="flex-shrink-0 w-12 h-12 flex items-center justify-center bg-slate-800 dark:bg-white/5 rounded-xl group-hover:bg-accent transition-all duration-300">
+                    <span className="material-symbols-outlined text-accent group-hover:text-primary !text-[24px]">
+                      email
+                    </span>
+                  </div>
+                  <div className="flex flex-col">
+                    <span className="block text-slate-500 text-[10px] uppercase font-bold tracking-wider mb-0.5">
+                      E-mail
+                    </span>
+                    <div className="text-slate-200 text-sm md:text-base font-medium leading-tight">
+                      mgepersonalcar@gmail.com
+                    </div>
                   </div>
                 </li>
-                <li className="flex items-center md:items-start gap-4 justify-center md:justify-start group">
-                  <span className="material-symbols-outlined text-accent bg-white/5 p-2 rounded-lg group-hover:bg-accent group-hover:text-primary transition-colors">location_on</span>
-                  <div>
-                    <span className="block text-slate-500 text-[10px] uppercase font-bold tracking-wider mb-1">Localização</span>
-                    Rio de Janeiro - RJ
+
+                {/* Item: Localização */}
+                <li className="flex items-center gap-4 group">
+                  <div className="flex-shrink-0 w-12 h-12 flex items-center justify-center bg-slate-800 dark:bg-white/5 rounded-xl group-hover:bg-accent transition-all duration-300">
+                    <span className="material-symbols-outlined text-accent group-hover:text-primary !text-[24px]">
+                      location_on
+                    </span>
+                  </div>
+                  <div className="flex flex-col">
+                    <span className="block text-slate-500 text-[10px] uppercase font-bold tracking-wider mb-0.5">
+                      Localização
+                    </span>
+                    <div className="text-slate-200 text-sm md:text-base font-medium leading-tight">
+                      Rio de Janeiro - RJ
+                    </div>
                   </div>
                 </li>
               </ul>
