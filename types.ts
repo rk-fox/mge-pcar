@@ -16,6 +16,7 @@ export interface Car {
   features: string[];
   isFeatured?: boolean;
   isSold?: boolean;
+  car_plate: number;
 }
 
 export interface Testimonial {

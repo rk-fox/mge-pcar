@@ -173,7 +173,7 @@ const About: React.FC<AboutProps> = ({ reviewToken }) => {
                                 <img
                                     alt="Nossa Equipe"
                                     className="rounded-[2.5rem] shadow-2xl w-full object-cover aspect-[4/3] border-8 border-slate-50 dark:border-white/5 transition-transform duration-500 group-hover:scale-[1.02]"
-                                    src="/logo-MGE.png"
+                                    src="/ferraz-erick.jpg"
                                 />
                                 <div className="absolute -bottom-8 -right-8 bg-primary text-white p-10 rounded-[2rem] shadow-2xl z-20 hidden md:block transform hover:scale-110 transition-transform">
                                     <p className="text-6xl font-black mb-1 tracking-tighter">08+</p>

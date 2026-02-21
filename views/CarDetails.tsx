@@ -240,7 +240,7 @@ const CarDetails: React.FC<CarDetailsProps> = ({ car }) => {
                                 </div>
                                 <div className="bg-white dark:bg-card-dark border border-slate-100 dark:border-white/5 p-6 rounded-2xl shadow-lg hover:shadow-xl transition-shadow group">
                                     <p className="text-slate-400 text-[10px] font-black uppercase tracking-widest mb-2 group-hover:text-primary transition-colors">Final de Placa</p>
-                                    <p className="text-2xl font-black text-slate-900 dark:text-white tracking-tighter">7</p>
+                                    <p className="text-2xl font-black text-slate-900 dark:text-white tracking-tighter">{car.car_plate}</p>
                                 </div>
                             </div>
                         </section>
@@ -346,8 +346,8 @@ const CarDetails: React.FC<CarDetailsProps> = ({ car }) => {
                                         <button
                                             onClick={handleShare}
                                             className={`w-full font-black py-4 rounded-xl text-xs uppercase tracking-widest transition-all flex items-center justify-center gap-3 border ${shareCopied
-                                                    ? 'bg-green-500/10 text-green-400 border-green-500/20'
-                                                    : 'bg-white/5 hover:bg-primary/20 text-slate-300 hover:text-primary border-white/10 hover:border-primary/30'
+                                                ? 'bg-green-500/10 text-green-400 border-green-500/20'
+                                                : 'bg-white/5 hover:bg-primary/20 text-slate-300 hover:text-primary border-white/10 hover:border-primary/30'
                                                 }`}
                                         >
                                             <span className="material-symbols-outlined text-lg font-black">

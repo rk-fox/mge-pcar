@@ -9,7 +9,7 @@ interface HomeProps {
 }
 
 const Home: React.FC<HomeProps> = ({ onChangeView, onSelectCar, cars, loading }) => {
-  const featuredCars = cars.filter(car => car.isFeatured || car.price > 200000).slice(0, 3);
+  const featuredCars = cars.filter(car => car.isFeatured).slice(0, 6);
 
   return (
     <div>

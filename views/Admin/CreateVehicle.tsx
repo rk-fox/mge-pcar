@@ -57,7 +57,8 @@ const CreateVehicle: React.FC<AdminProps> = ({ onBack, onCarUpdate }) => {
         description: '',
         features: [],
         isFeatured: false,
-        isSold: false
+        isSold: false,
+        car_plate: 0
     });
 
     useEffect(() => {
@@ -254,7 +255,8 @@ const CreateVehicle: React.FC<AdminProps> = ({ onBack, onCarUpdate }) => {
             description: formData.description,
             features: formData.features,
             is_featured: formData.isFeatured,
-            is_sold: formData.isSold
+            is_sold: formData.isSold,
+            car_plate: formData.car_plate
         };
 
         let error;
@@ -288,7 +290,7 @@ const CreateVehicle: React.FC<AdminProps> = ({ onBack, onCarUpdate }) => {
             brand: '', model: '', version: '', year_fab: new Date().getFullYear(), year_mod: new Date().getFullYear(),
             price: 0, mileage: 0, transmission: 'Automático', fuel: '',
             color: '', image: '', images: [], description: '', features: [],
-            isFeatured: false, isSold: false
+            isFeatured: false, isSold: false, car_plate: 0
         });
     };
 
@@ -578,6 +580,10 @@ const CreateVehicle: React.FC<AdminProps> = ({ onBack, onCarUpdate }) => {
                                             <div className="flex flex-col gap-3">
                                                 <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1">Quilometragem</label>
                                                 <input name="mileage" type="number" value={formData.mileage} onChange={handleInputChange} required className="rounded-2xl border-transparent dark:bg-slate-800 px-6 py-4.5 text-sm font-bold focus:ring-4 focus:ring-primary/20 transition-all shadow-inner bg-slate-50" placeholder="0" />
+                                            </div>
+                                            <div className="flex flex-col gap-3">
+                                                <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1">Final da Placa</label>
+                                                <input name="car_plate" type="number" value={formData.car_plate} onChange={handleInputChange} required className="rounded-2xl border-transparent dark:bg-slate-800 px-6 py-4.5 text-sm font-bold focus:ring-4 focus:ring-primary/20 transition-all shadow-inner bg-slate-50" placeholder="0" />
                                             </div>
                                         </div>
                                     </section>
