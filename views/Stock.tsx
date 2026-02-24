@@ -1,4 +1,5 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
+import { trackView } from '../lib/analytics';
 import { Car } from '../types';
 
 interface StockProps {
@@ -8,6 +9,9 @@ interface StockProps {
 }
 
 const Stock: React.FC<StockProps> = ({ onSelectCar, cars, loading }) => {
+  useEffect(() => {
+    trackView();
+  }, []);
   const [mobileFilterOpen, setMobileFilterOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
   const [minYear, setMinYear] = useState<number | null>(null);

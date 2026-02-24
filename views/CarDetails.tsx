@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { trackView } from '../lib/analytics';
 import { supabase } from '../lib/supabase';
 import { Car } from '../types';
 
@@ -7,6 +8,11 @@ interface CarDetailsProps {
 }
 
 const CarDetails: React.FC<CarDetailsProps> = ({ car }) => {
+    useEffect(() => {
+        if (car?.id) {
+            trackView(car.id);
+        }
+    }, [car?.id]);
     // Combine main image with secondary images, ensuring no duplicates if main is already in secondary
     const gallery = [car.image, ...(car.images || [])].filter((url, index, self) => url && self.indexOf(url) === index);
     const [selectedImage, setSelectedImage] = useState(car.image || (car.images && car.images.length > 0 ? car.images[0] : '/logo-MGE.png'));

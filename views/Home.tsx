@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { trackView } from '../lib/analytics';
 import { ViewState, Car } from '../types';
 
 interface HomeProps {
@@ -10,6 +11,10 @@ interface HomeProps {
 
 const Home: React.FC<HomeProps> = ({ onChangeView, onSelectCar, cars, loading }) => {
   const featuredCars = cars.filter(car => car.isFeatured).slice(0, 6);
+
+  useEffect(() => {
+    trackView();
+  }, []);
 
   return (
     <div>

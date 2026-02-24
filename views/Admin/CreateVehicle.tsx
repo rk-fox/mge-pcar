@@ -7,7 +7,7 @@ interface AdminProps {
     onCarUpdate?: () => void;
 }
 
-type AdminSection = 'ESTOQUE' | 'CONTATO' | 'ANUNCIOS' | 'INTERESSES' | 'AVALIACOES';
+type AdminSection = 'ESTOQUE' | 'CONTATO' | 'ANUNCIOS' | 'INTERESSES' | 'AVALIACOES' | 'DASHBOARD';
 
 const CreateVehicle: React.FC<AdminProps> = ({ onBack, onCarUpdate }) => {
     const [activeSection, setActiveSection] = useState<AdminSection>('ESTOQUE');
@@ -16,6 +16,9 @@ const CreateVehicle: React.FC<AdminProps> = ({ onBack, onCarUpdate }) => {
     const [advertiseMessages, setAdvertiseMessages] = useState<any[]>([]);
     const [carInterests, setCarInterests] = useState<any[]>([]);
     const [reviews, setReviews] = useState<any[]>([]);
+    const [stats, setStats] = useState<any>(null);
+    const [ranking, setRanking] = useState<any[]>([]);
+    const [rankingInterval, setRankingInterval] = useState<'today' | 'week'>('week');
     const [loading, setLoading] = useState(true);
     const [isFormOpen, setIsFormOpen] = useState(false);
     const [editingCar, setEditingCar] = useState<Car | null>(null);
@@ -78,6 +81,8 @@ const CreateVehicle: React.FC<AdminProps> = ({ onBack, onCarUpdate }) => {
                 await fetchCarInterests();
             } else if (activeSection === 'AVALIACOES') {
                 await fetchReviews();
+            } else if (activeSection === 'DASHBOARD') {
+                await fetchDashboardData();
             }
         } catch (err) {
             console.error('Error in fetchData:', err);
@@ -160,6 +165,25 @@ const CreateVehicle: React.FC<AdminProps> = ({ onBack, onCarUpdate }) => {
             setReviews(data || []);
         }
     };
+
+    const fetchDashboardData = async () => {
+        setLoading(true);
+        const { data: statsData, error: statsError } = await supabase.rpc('get_site_stats');
+        if (statsError) console.error('Error stats:', statsError);
+        else setStats(statsData);
+
+        const { data: rankData, error: rankError } = await supabase.rpc('get_car_ranking', { p_interval: rankingInterval });
+        if (rankError) console.error('Error ranking:', rankError);
+        else setRanking(rankData || []);
+
+        setLoading(false);
+    };
+
+    useEffect(() => {
+        if (activeSection === 'DASHBOARD') {
+            fetchDashboardData();
+        }
+    }, [rankingInterval]);
 
     const toggleReviewApproval = async (id: string, currentStatus: boolean) => {
         const { error } = await supabase
@@ -383,6 +407,14 @@ const CreateVehicle: React.FC<AdminProps> = ({ onBack, onCarUpdate }) => {
                                 <span className="material-symbols-outlined text-xl">grade</span>
                                 Avaliações Clientes
                             </button>
+
+                            <button
+                                onClick={() => { setActiveSection('DASHBOARD'); setIsFormOpen(false); }}
+                                className={`flex items-center gap-3 px-5 py-4 rounded-2xl transition-all font-bold text-sm text-left ${activeSection === 'DASHBOARD' ? 'bg-primary text-white shadow-lg shadow-primary/20 scale-105' : 'text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800'}`}
+                            >
+                                <span className="material-symbols-outlined text-xl">analytics</span>
+                                Dashboard de Visitas
+                            </button>
                         </nav>
                     </div>
 
@@ -413,7 +445,8 @@ const CreateVehicle: React.FC<AdminProps> = ({ onBack, onCarUpdate }) => {
                                         activeSection === 'CONTATO' ? 'Mensagens Recebidas' :
                                             activeSection === 'ANUNCIOS' ? 'Solicitações de Anúncio' :
                                                 activeSection === 'INTERESSES' ? 'Interesses em Veículos' :
-                                                    'Avaliações de Clientes'}
+                                                    activeSection === 'AVALIACOES' ? 'Avaliações de Clientes' :
+                                                        'Dashboard de Visitas'}
                                 </span>
                             </div>
                             <h2 className="text-5xl font-black tracking-tighter uppercase leading-none">
@@ -421,7 +454,8 @@ const CreateVehicle: React.FC<AdminProps> = ({ onBack, onCarUpdate }) => {
                                     activeSection === 'CONTATO' ? <><span className="text-primary italic">Contact</span> Center</> :
                                         activeSection === 'ANUNCIOS' ? <><span className="text-primary italic">Ad</span> Requests</> :
                                             activeSection === 'INTERESSES' ? <><span className="text-primary italic">Interest</span> Hub</> :
-                                                <><span className="text-primary italic">Customer</span> Reviews</>}
+                                                activeSection === 'AVALIACOES' ? <><span className="text-primary italic">Customer</span> Reviews</> :
+                                                    <><span className="text-primary italic">Visitor</span> Analytics</>}
                             </h2>
                         </div>
 
@@ -844,7 +878,7 @@ const CreateVehicle: React.FC<AdminProps> = ({ onBack, onCarUpdate }) => {
                                     </div>
                                 )}
                             </>
-                        ) : (
+                        ) : activeSection === 'AVALIACOES' ? (
                             <>
                                 <div className="flex items-center gap-4 mb-8">
                                     <span className="w-2 h-10 bg-primary rounded-full shadow-lg shadow-primary/50"></span>
@@ -904,6 +938,87 @@ const CreateVehicle: React.FC<AdminProps> = ({ onBack, onCarUpdate }) => {
                                         ))}
                                     </div>
                                 )}
+                            </>
+                        ) : (
+                            <>
+                                <div className="flex items-center gap-4 mb-8">
+                                    <span className="w-2 h-10 bg-accent rounded-full shadow-lg shadow-accent/50"></span>
+                                    <h3 className="text-xl font-black uppercase tracking-tight">Análise de Audiência</h3>
+                                </div>
+
+                                {/* Stats Grid */}
+                                <div className="grid grid-cols-2 md:grid-cols-5 gap-4 mb-12">
+                                    <div className="bg-white dark:bg-slate-900 p-6 rounded-[2rem] border border-slate-100 dark:border-white/5 shadow-xl">
+                                        <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-2">Hoje</p>
+                                        <p className="text-3xl font-black text-primary">{stats?.today || 0}</p>
+                                    </div>
+                                    <div className="bg-white dark:bg-slate-900 p-6 rounded-[2rem] border border-slate-100 dark:border-white/5 shadow-xl">
+                                        <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-2">7 Dias</p>
+                                        <p className="text-3xl font-black text-slate-700 dark:text-slate-200">{stats?.last_7_days || 0}</p>
+                                    </div>
+                                    <div className="bg-white dark:bg-slate-900 p-6 rounded-[2rem] border border-slate-100 dark:border-white/5 shadow-xl">
+                                        <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-2">30 Dias</p>
+                                        <p className="text-3xl font-black text-slate-700 dark:text-slate-200">{stats?.last_30_days || 0}</p>
+                                    </div>
+                                    <div className="bg-white dark:bg-slate-900 p-6 rounded-[2rem] border border-slate-100 dark:border-white/5 shadow-xl">
+                                        <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-2">Este Ano</p>
+                                        <p className="text-3xl font-black text-slate-700 dark:text-slate-200">{stats?.year || 0}</p>
+                                    </div>
+                                    <div className="bg-primary text-white p-6 rounded-[2rem] shadow-xl shadow-primary/20">
+                                        <p className="text-[10px] font-black text-white/60 uppercase tracking-widest mb-2">Total Geral</p>
+                                        <p className="text-3xl font-black">{stats?.total || 0}</p>
+                                    </div>
+                                </div>
+
+                                <div className="grid grid-cols-1 lg:grid-cols-1 gap-8">
+                                    <div className="bg-white dark:bg-slate-900 rounded-[3rem] p-10 border border-slate-100 dark:border-white/5 shadow-2xl">
+                                        <div className="flex justify-between items-center mb-10">
+                                            <h3 className="text-2xl font-black uppercase tracking-tighter">Ranking de Veículos</h3>
+                                            <div className="flex bg-slate-100 dark:bg-slate-800 p-1 rounded-xl">
+                                                <button
+                                                    onClick={() => setRankingInterval('today')}
+                                                    className={`px-4 py-1.5 rounded-lg text-[10px] font-black uppercase tracking-widest transition-all ${rankingInterval === 'today' ? 'bg-white dark:bg-slate-700 text-primary shadow-sm' : 'text-slate-400'}`}
+                                                >
+                                                    Hoje
+                                                </button>
+                                                <button
+                                                    onClick={() => setRankingInterval('week')}
+                                                    className={`px-4 py-1.5 rounded-lg text-[10px] font-black uppercase tracking-widest transition-all ${rankingInterval === 'week' ? 'bg-white dark:bg-slate-700 text-primary shadow-sm' : 'text-slate-400'}`}
+                                                >
+                                                    Semana
+                                                </button>
+                                            </div>
+                                        </div>
+
+                                        {ranking.length === 0 ? (
+                                            <div className="py-20 text-center">
+                                                <span className="material-symbols-outlined text-6xl text-slate-100 mb-4">analytics</span>
+                                                <p className="text-slate-400 font-bold uppercase tracking-widest text-xs">Sem visualizações no período</p>
+                                            </div>
+                                        ) : (
+                                            <div className="space-y-4">
+                                                {ranking.map((item, idx) => (
+                                                    <div key={item.car_id} className="flex items-center gap-6 p-4 rounded-2xl hover:bg-slate-50 dark:hover:bg-white/5 transition-all group">
+                                                        <div className="w-10 h-10 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center font-black text-slate-400 group-hover:bg-primary group-hover:text-white transition-all">
+                                                            {idx + 1}
+                                                        </div>
+                                                        <div className="w-20 h-14 rounded-xl overflow-hidden shadow-md">
+                                                            <img src={item.image || '/logo-MGE.png'} alt="" className="w-full h-full object-cover" />
+                                                        </div>
+                                                        <div className="flex-1">
+                                                            <h4 className="font-black uppercase tracking-tight text-sm">{item.brand} {item.model}</h4>
+                                                            <p className="text-[10px] text-slate-400 font-bold uppercase">R$ {item.price?.toLocaleString('pt-BR')}</p>
+                                                        </div>
+                                                        <div className="text-right">
+                                                            <p className="text-xl font-black text-primary">{item.views_count}</p>
+                                                            <p className="text-[8px] text-slate-400 font-black uppercase tracking-widest">Visualizações</p>
+                                                        </div>
+                                                    </div>
+                                                ))}
+                                            </div>
+                                        )}
+                                    </div>
+                                </div>
                             </>
                         )}
                     </div>
