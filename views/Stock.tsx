@@ -266,11 +266,11 @@ const Stock: React.FC<StockProps> = ({ onSelectCar, cars, loading }) => {
                       className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                       src={car.image || (car.images && car.images.length > 0 ? car.images[0] : '/logo-MGE.png')}
                     />
-                    <div className="absolute top-4 left-4 bg-accent text-slate-900 px-4 py-2 font-black text-lg rounded-xl shadow-2xl">
+                    <div className="absolute top-4 right-4 bg-accent text-slate-900 px-4 py-2 font-black text-lg rounded-xl shadow-2xl">
                       R$ {car.price.toLocaleString('pt-BR')}
                     </div>
                     {car.isFeatured && (
-                      <div className="absolute top-4 right-4 bg-primary text-white px-3 py-1 font-black text-[10px] rounded-lg uppercase tracking-[0.2em] shadow-lg">
+                      <div className="absolute top-4 left-4 bg-primary text-white px-3 py-1 font-black text-[10px] rounded-lg uppercase tracking-[0.2em] shadow-lg">
                         Destaque
                       </div>
                     )}

@@ -122,16 +122,19 @@ const Home: React.FC<HomeProps> = ({ onChangeView, onSelectCar, cars, loading })
                 >
                   <div className="relative overflow-hidden h-72">
                     <img alt={`${car.brand} ${car.model}`} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src={car.image || (car.images && car.images.length > 0 ? car.images[0] : '/logo-MGE.png')} />
-                    <div className="absolute top-4 left-4 bg-primary text-white px-3 py-1 rounded-lg text-xs font-black uppercase tracking-widest shadow-lg">Destaque</div>
-                    <div className="absolute bottom-0 right-0 bg-accent text-slate-900 px-6 py-3 font-black text-2xl rounded-tl-2xl shadow-2xl">
-                      R$ {car.price.toLocaleString('pt-BR')}
-                    </div>
+                    {car.isFeatured && (
+                      <div className="absolute top-4 left-4 bg-primary text-white px-3 py-1 rounded-lg text-xs font-black uppercase tracking-widest shadow-lg">Destaque</div>
+                    )}
                   </div>
                   <div className="p-8">
                     <div className="flex justify-between items-start mb-6">
-                      <div>
+                      <div className="w-full">
                         <h3 className="font-display text-2xl font-black text-slate-900 dark:text-white uppercase tracking-tighter mb-1">{car.brand} {car.model}</h3>
-                        <p className="text-slate-500 dark:text-slate-400 font-bold text-sm tracking-wide">{car.version}</p>
+                        <p className="text-slate-500 dark:text-slate-400 font-bold text-sm tracking-wide mb-6">{car.version}</p>
+                        
+                        <div className="bg-accent text-slate-900 px-6 py-3 font-black text-2xl rounded-xl shadow-lg text-center transform hover:scale-[1.02] transition-transform">
+                          R$ {car.price.toLocaleString('pt-BR')}
+                        </div>
                       </div>
                     </div>
                     <div className="grid grid-cols-3 gap-4 border-t border-b border-slate-100 dark:border-white/5 py-6 my-6">

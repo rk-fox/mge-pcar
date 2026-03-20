@@ -214,7 +214,13 @@ const CreateVehicle: React.FC<AdminProps> = ({ onBack, onCarUpdate }) => {
     };
 
     const handleFeaturesChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        const features = e.target.value.split(',').map(f => f.trim());
+        const value = e.target.value;
+        const parts = value.split(',');
+        const features = parts.map((f, i) => {
+            // Preserve trailing spaces on the last element while typing
+            if (i === parts.length - 1) return f.trimStart();
+            return f.trim();
+        });
         setFormData(prev => ({ ...prev, features }));
     };
 
